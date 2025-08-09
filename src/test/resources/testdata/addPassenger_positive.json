@@ -1,0 +1,11 @@
+{
+  "user": {
+    "passengerId": "11",
+    "passengerName": "TestUserPos",
+    "passengerMobile": "9876501234",
+    "passengerGender": "Male",
+    "passengerAadhaarNumber": "111122223333",
+    "passengerAddress": "Delhi"
+  },
+  "expectedStatus": 200
+}

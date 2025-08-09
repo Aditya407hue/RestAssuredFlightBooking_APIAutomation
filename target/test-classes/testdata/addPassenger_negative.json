@@ -1,0 +1,11 @@
+{
+  "user": {
+    "passengerId": "",
+    "passengerName": "",
+    "passengerMobile": "abcde",
+    "passengerGender": "Unknown",
+    "passengerAadhaarNumber": "short",
+    "passengerAddress": ""
+  },
+  "expectedStatus": 400
+}
