@@ -15,7 +15,6 @@ public class ExtentManager {
     public synchronized static ExtentReports getInstance() {
         if (extent == null) {
             // Create report directory if not exists
-//            String reportDir = "target/ExtentReports";
             String reportDirc = ConfigLoader.get("reportDir");
             new File(reportDirc).mkdirs();
 
