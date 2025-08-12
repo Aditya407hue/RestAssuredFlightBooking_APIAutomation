@@ -1,11 +1,19 @@
 {
-  "user": {
+  "user1": {
     "passengerId": "11",
-    "passengerName": "TestUserPos",
+    "passengerName": "John Snow",
     "passengerMobile": "9876501234",
     "passengerGender": "Male",
     "passengerAadhaarNumber": "111122223333",
     "passengerAddress": "Delhi"
+  },
+  "user2": {
+    "passengerId": "9",
+    "passengerName": "Matilda",
+    "passengerMobile": "9876501243",
+    "passengerGender": "Female",
+    "passengerAadhaarNumber": "789456789012",
+    "passengerAddress": "Kolkata"
   },
   "expectedStatus": 200
 }

@@ -3,6 +3,8 @@ package base;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import utils.ConfigLoader;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,14 +15,15 @@ public class ExtentManager {
     public synchronized static ExtentReports getInstance() {
         if (extent == null) {
             // Create report directory if not exists
-            String reportDir = "target/ExtentReports";
-            new File(reportDir).mkdirs();
+//            String reportDir = "target/ExtentReports";
+            String reportDirc = ConfigLoader.get("reportDir");
+            new File(reportDirc).mkdirs();
 
             // Add timestamp to avoid overwriting old reports
             String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss_").format(new Date());
-            String filePath = reportDir + File.separator + "FlightBookingAPI_" + timeStamp + ".html";
+            String filePath = reportDirc + File.separator + "FlightBookingAPI_" + timeStamp + ".html";
 
-            // Use ExtentSparkReporter instead of deprecated ExtentHtmlReporter
+            // Use ExtentSparkReporter
             ExtentSparkReporter spark = new ExtentSparkReporter(filePath);
             spark.config().setDocumentTitle("FlightBooking API Automation Report");
             spark.config().setReportName("FlightBooking API Test Results");

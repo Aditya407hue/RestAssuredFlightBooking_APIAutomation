@@ -19,16 +19,31 @@ public class AddPassengerTest extends TestBase {
         given()
             .auth().oauth2(TokenManager.getAccessToken())
             .contentType(ContentType.URLENC)
-            .formParams((Map)payload.get("user"))
+            .formParams((Map)payload.get("user1"))
         .when()
             .post("/addPassenger")
         .then()
             .statusCode(200)
             .body(containsString("passengerId"));
-        getTest().pass("Add passenger positive validated");
+        getTest().pass("Add passenger positive validated for user1");
     }
 
     @Test
+    public void testAddPassengerPositive1() {
+        Map<String, Object> payload = PayloadBuilder.loadJsonAsMap("testdata/addPassenger_positive.json");
+        given()
+                .auth().oauth2(TokenManager.getAccessToken())
+                .contentType(ContentType.URLENC)
+                .formParams((Map)payload.get("user2"))
+                .when()
+                .post("/addPassenger")
+                .then()
+                .statusCode(200)
+                .body(containsString("passengerId"));
+        getTest().pass("Add passenger positive validated for user2");
+    }
+
+    @Test(priority = 1)
     public void testAddPassengerNegative() {
         Map<String, Object> payload = PayloadBuilder.loadJsonAsMap("testdata/addPassenger_negative.json");
         given()
